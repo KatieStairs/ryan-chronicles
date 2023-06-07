@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import Input from 'bootstrap'
 import './StartStory.css';
 
 const StartStory = () => {
@@ -26,7 +25,10 @@ if (!browserSupportsSpeechRecognition) {
 }
 
   return (
-    <div className="card" style={{ width: 500 }}>
+    <div className="card" style={{ padding: 10 }}>
+      <div className="card-header">
+        <h1>Record a story</h1>
+      </div>
       <div className="card-body">
         <ul style={{ padding: 10 }}>
           <li>Press Start to begin recording and the microphone will record continuously.</li>
@@ -38,11 +40,15 @@ if (!browserSupportsSpeechRecognition) {
         <button style={{ margin: 3 }} onClick={SpeechRecognition.startListening}>Start</button>
         <button style={{ margin: 3 }} onClick={SpeechRecognition.stopListening}>Stop</button>
         <button style={{ margin: 3 }} onClick={resetTranscript}>Reset</button>
-      </div>
-      <div className="card" style={{ width: 500 }}>
-        <div className="card-body">
         <p>{transcript}</p>
-        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Title:</label>
+          <input class="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+        <label for="exampleFormControlTextarea1" class="form-label">Story:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
+            
+          </textarea>
       </div>
     </div>
   );
